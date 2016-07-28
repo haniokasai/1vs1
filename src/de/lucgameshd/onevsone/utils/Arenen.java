@@ -24,7 +24,7 @@ public class Arenen {
 		LocationAPI.setArenaLocation("Start1", arena, p.getLocation());
 	}
 	
-	public static Position getStart1(Player p, String arenen){
+	public static Position getStart1(String arenen){
 		return LocationAPI.getArenaLocation("Start1", arenen);
 	}
 	
@@ -32,10 +32,8 @@ public class Arenen {
 		LocationAPI.setArenaLocation("Start2", arena, p.getLocation());
 	}
 	
-	public static Position getStart2(Player p, String arenen){
+	public static Position getStart2(String arenen){
 		return LocationAPI.getArenaLocation("Start2", arenen);
 	}
-	
-	
 
 }
