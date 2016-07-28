@@ -1,6 +1,7 @@
 package de.lucgameshd.onevsone.utils;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.nukkit.Player;
@@ -14,12 +15,31 @@ public class Arenen {
 	public static Config cfg = new Config(file, 2);
 	
 	public static void createArena(String arena){
-		List<String> list = cfg.getStringList("1vs1.Maps");
+		List<String> list = cfg.getStringList("1vs1.Arenan");
 		list.add(arena);
-		cfg.set("1vs1.Maps", list);
+		cfg.set("1vs1.Arenan", list);
+		cfg.set("1vs1.Arenan." + arena + ".Players", new ArrayList<>());
 		cfg.save();
 	}
 	
+	public static void addPlayer(String arena, String player){
+		List<String> players = getPlayers(arena);
+		players.add(player);
+		cfg.set("1vs1.Arenan." + arena + ".Players", players);
+		cfg.save();
+	}
+	
+	public static void removePlayer(String arena, String player){
+		List<String> players = getPlayers(arena);
+		players.remove(player);
+		cfg.set("1vs1.Arenan." + arena + ".Players", players);
+		cfg.save();
+	}
+	
+	private static List<String> getPlayers(String arena) {
+		return cfg.getStringList("1vs1.Arenan." + arena + ".Players");
+	}
+
 	public static void setStart1(Player p, String arena){
 		LocationAPI.setArenaLocation("Start1", arena, p.getLocation());
 	}

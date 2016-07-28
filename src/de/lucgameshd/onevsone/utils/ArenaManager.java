@@ -50,7 +50,7 @@ public class ArenaManager {
 	}
 	
 	public static String searchForArena(){
-		List<String> list = cfg.getStringList("1vs1.Maps");
+		List<String> list = cfg.getStringList("1vs1.Arenan");
 		Random r = new Random();
 		boolean found = false;
 		while(found == false){
@@ -66,7 +66,7 @@ public class ArenaManager {
 	}
 	
 	public static String searchInList(){
-		List<String> list = cfg.getStringList("1vs1.Maps");
+		List<String> list = cfg.getStringList("1vs1.Arenan");
 		for(String s : list){
 			if(isUsed(s)){
 				continue;
