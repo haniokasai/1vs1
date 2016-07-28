@@ -14,6 +14,7 @@ public class Arenen {
 	public static File file = new File(ordner, "ArenaManager.yml");
 	public static Config cfg = new Config(file, 2);
 	
+	
 	public static void createArena(String arena){
 		List<String> list = cfg.getStringList("1vs1.Arenan");
 		list.add(arena);
@@ -36,8 +37,18 @@ public class Arenen {
 		cfg.save();
 	}
 	
-	private static List<String> getPlayers(String arena) {
+	public static List<String> getPlayers(String arena) {
 		return cfg.getStringList("1vs1.Arenan." + arena + ".Players");
+	}
+	
+	public static boolean isInArena(Player p){
+		for(String arena : cfg.getStringList("1vs1.Arenan")){
+			List<String> players = getPlayers(arena);
+			if(players.contains(p.getName())){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public static void setStart1(Player p, String arena){
