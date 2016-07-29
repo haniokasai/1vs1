@@ -2,13 +2,11 @@ package de.lucgameshd.onevsone.listeners;
 
 import java.util.HashMap;
 
-import sun.text.normalizer.CharTrie.FriendAgent;
 import cn.nukkit.Player;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
-import cn.nukkit.event.level.ChunkUnloadEvent;
 import de.lucgameshd.onevsone.Main;
 
 public class PlayerDamage implements Listener{
