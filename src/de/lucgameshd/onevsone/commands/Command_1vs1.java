@@ -20,6 +20,7 @@ public class Command_1vs1 extends Command{
 		if(p.isOp()){
 			if(args.length == 0){
 				p.sendMessage(Main.prefix + "§c- /1vs1 setlobby");
+				p.sendMessage(Main.prefix + "§c- /1vs1 setarenen");
 				p.sendMessage(Main.prefix + "§c- /1vs1 create <arena>");
 				p.sendMessage(Main.prefix + "§c- /1vs1 setstart1 <arena>");
 				p.sendMessage(Main.prefix + "§c- /1vs1 setstart2 <arena>");
@@ -28,6 +29,10 @@ public class Command_1vs1 extends Command{
 				if(args[0].equalsIgnoreCase("setlobby")){
 					LocationAPI.setLocation("Lobby", p.getLocation());
 					p.sendMessage(Main.prefix + "§aDu hast die Lobby für 1vs1 gesetzt!");
+				}else
+				if(args[0].equalsIgnoreCase("setarenen")){
+					LocationAPI.setArenenLevel(p.getLevel());
+					p.sendMessage(Main.prefix + "§aDu hast die Arenen Welt festgelegt!");
 				}else{
 					p.sendMessage(Main.prefix + "§c- /1vs1 setlobby");
 					p.sendMessage(Main.prefix + "§c- /1vs1 create <arena>");
