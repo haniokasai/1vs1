@@ -2,12 +2,13 @@ package de.lucgameshd.onevsone;
 
 import cn.nukkit.plugin.PluginBase;
 import de.lucgameshd.onevsone.commands.Command_1vs1;
+import de.lucgameshd.onevsone.listeners.PlayerDamage;
 import de.lucgameshd.onevsone.utils.ArenaManager;
 import de.lucgameshd.onevsone.utils.LocationAPI;
 
 public class Main extends PluginBase{
 	
-	public static String prefix = "§8[§51vs1§8] ";
+	public static String prefix = "§8[§41vs1§8] ";
 	
 	@Override
 	public void onEnable() {
@@ -30,7 +31,7 @@ public class Main extends PluginBase{
 	}
 	
 	private void registerListeners(){
-		
+		this.getServer().getPluginManager().registerEvents(new PlayerDamage(), this);
 	}
 
 }
