@@ -32,12 +32,14 @@ public class Match {
 		p1.getInventory().clearAll();
 		p2.getInventory().clearAll();
 		
+		
 		Arenen.setStatus(foundedmap, "Ingame");
 		ArenaManager.addInUsed(foundedmap);
 		
 		//TODO Kit dem Spieler zuweisen
 		
 		countdown.put(foundedmap, 4);
+		
 		
 		Server.getInstance().getScheduler().scheduleRepeatingTask(new Runnable() {
 			
@@ -68,7 +70,9 @@ public class Match {
 		p.setHealth(20);
 		p.getFoodData().reset();
 		p.setOnFire(0);
+		p.getEffects().clear();
 		p.getInventory().clearAll();
+		p.sendMessage(Main.prefix + "§aGlückwunsch du hast das Match gewonnen!");
 		p.teleport(LocationAPI.getLocation("Lobby"));
 		Arenen.setStatus(arena, "Frei");
 		ArenaManager.removeInUsed(arena);
