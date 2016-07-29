@@ -8,6 +8,8 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import de.lucgameshd.onevsone.Main;
+import de.lucgameshd.onevsone.utils.Arenen;
+import de.lucgameshd.onevsone.utils.Match;
 
 public class PlayerDamage implements Listener{
 	
@@ -21,15 +23,14 @@ public class PlayerDamage implements Listener{
 				if(((EntityDamageByEntityEvent) e).getDamager() instanceof Player){
 					Player p = (Player) e.getEntity();
 					Player damager = (Player) ((EntityDamageByEntityEvent) e).getDamager();
-					
+				if(!Arenen.isInArena(p) && !Arenen.isInArena(damager)){
 					if(challengesend.containsKey(p.getName()) || challangerequest.containsKey(damager.getName())){
 						if(challengesend.get(p.getName()).equals(damager.getName()) && challangerequest.get(damager.getName()).equals(p.getName())){
 							
 							challengesend.remove(p.getName(), damager.getName());
 							challangerequest.remove(damager.getName(), p.getName());
 							
-							p.sendMessage("Angenommen");
-							damager.sendMessage("Angenommen");
+							Match.startMatch(p, damager);
 							
 							e.setCancelled(true);
 						}else{
@@ -62,6 +63,7 @@ public class PlayerDamage implements Listener{
 					}
 					
 				}
+			}
 			}
 		}
 	}
