@@ -30,6 +30,15 @@ public class LocationAPI {
 		}
 	}
 	
+	public static void setArenenLevel(Level level){
+		cfg.set("1vs1.ArenenLevel", level.getName());
+		cfg.save();
+	}
+	
+	public static String getArenenLevel(){
+		return cfg.getString("1vs1.ArenenLevel");
+	}
+	
 	public static void setLocation(String path, Position loc){
 		cfg.set("1vs1." + path + ".World", loc.getLevel().getName());
 		cfg.set("1vs1." + path + ".X", loc.getX());
