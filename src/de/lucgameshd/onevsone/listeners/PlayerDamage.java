@@ -36,28 +36,28 @@ public class PlayerDamage implements Listener{
 						}else{
 							if(!challangerequest.containsKey(p.getName())){
 								if(!challengesend.containsKey(damager.getName())){
-									damager.sendTip("§3Du hast §e" + p.getName() + " §3herrausgefordert");
-									p.sendMessage(Main.prefix + "§3Du wurdest von §e" + damager.getName() + " §3herrausgefordert");
+									damager.sendTip("§3Du hast §e" + p.getName() + " §3herausgefordert");
+									p.sendMessage(Main.prefix + "§3Du wurdest von §e" + damager.getName() + " §3herausgefordert");
 									challengesend.put(damager.getName(), p.getName());
 									challangerequest.put(p.getName(), damager.getName());
 									e.setCancelled(true);
 								}
 							}else{
-								damager.sendMessage(Main.prefix + "§3Du hast schon §e" + p.getName() + " §3herrausgefordert!");
+								damager.sendMessage(Main.prefix + "§3Du hast schon §e" + p.getName() + " §3herausgefordert!");
 								e.setCancelled(true);
 							}
 						}
 					}else{
 						if(!challangerequest.containsKey(p.getName())){
 							if(!challengesend.containsKey(damager.getName())){
-								damager.sendTip("§3Du hast §e" + p.getName() + " §3herrausgefordert");
-								p.sendMessage(Main.prefix + "§3Du wurdest von §e" + damager.getName() + " §3herrausgefordert");
+								damager.sendTip("§3Du hast §e" + p.getName() + " §3herausgefordert");
+								p.sendMessage(Main.prefix + "§3Du wurdest von §e" + damager.getName() + " §3herausgefordert");
 								challengesend.put(damager.getName(), p.getName());
 								challangerequest.put(p.getName(), damager.getName());
 								e.setCancelled(true);
 							}
 						}else{
-							damager.sendMessage(Main.prefix + "§3Du hast schon §e" + p.getName() + " §3herrausgefordert!");
+							damager.sendMessage(Main.prefix + "§3Du hast schon §e" + p.getName() + " §3herausgefordert!");
 							e.setCancelled(true);
 						}
 					}
