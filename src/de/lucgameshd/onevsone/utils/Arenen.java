@@ -16,7 +16,7 @@ public class Arenen {
 	
 	
 	public static void createArena(String arena){
-		List<String> list = cfg.getStringList("1vs1.Arenen");
+		List<String> list = cfg.getStringList("1vs1.Arenen.Names");
 		list.add(arena);
 		cfg.set("1vs1.Arenen.Names", list);
 		cfg.set("1vs1.Arenen." + arena + ".Status", "Frei");
@@ -25,7 +25,7 @@ public class Arenen {
 	}
 	
 	public static void resetArenen(){
-		for(String arena : cfg.getStringList("1vs1.Arenen")){
+		for(String arena : cfg.getStringList("1vs1.Arenen.Names")){
 			cfg.set("1vs1.Arenen." + arena + ".Status", "Frei");
 			cfg.set("1vs1.Arenen." + arena + ".Players", new ArrayList<>());
 			cfg.save();
