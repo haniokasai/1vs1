@@ -4,6 +4,7 @@ import cn.nukkit.plugin.PluginBase;
 import de.lucgameshd.onevsone.commands.Command_1vs1;
 import de.lucgameshd.onevsone.listeners.PlayerDamage;
 import de.lucgameshd.onevsone.utils.ArenaManager;
+import de.lucgameshd.onevsone.utils.Arenen;
 import de.lucgameshd.onevsone.utils.LocationAPI;
 
 public class Main extends PluginBase{
@@ -14,6 +15,7 @@ public class Main extends PluginBase{
 	public void onEnable() {
 		this.registerCommands();
 		this.registerListeners();
+		this.loadArenenLevel();
 		ArenaManager.createFiles();
 		LocationAPI.createFiles();
 		super.onEnable();
@@ -21,7 +23,7 @@ public class Main extends PluginBase{
 	
 	@Override
 	public void onDisable() {
-
+		Arenen.resetArenen();
 		super.onDisable();
 	}
 	
@@ -32,6 +34,10 @@ public class Main extends PluginBase{
 	
 	private void registerListeners(){
 		this.getServer().getPluginManager().registerEvents(new PlayerDamage(), this);
+	}
+	
+	private void loadArenenLevel(){
+		this.getServer().loadLevel(LocationAPI.getArenenLevel());
 	}
 
 }
