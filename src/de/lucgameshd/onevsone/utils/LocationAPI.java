@@ -36,7 +36,7 @@ public class LocationAPI {
 	}
 	
 	public static String getArenenLevel(){
-		return cfg.getString("1vs1.ArenenLevel") == null ?Server.getInstance().getDefaultLevel().getName() : cfg.getString("1vs1.ArenenLevel");
+		return !cfg.exists("1vs1.ArenenLevel") ? Server.getInstance().getDefaultLevel().getName() : cfg.getString("1vs1.ArenenLevel");
 	}
 	
 	public static void setLocation(String path, Position loc){
