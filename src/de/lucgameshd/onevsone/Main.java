@@ -11,10 +11,11 @@ import de.lucgameshd.onevsone.utils.LocationAPI;
 
 public class Main extends PluginBase{
 	
-	public static String prefix = "ง8[ง41vs1ง8] ";
+	public static String prefix = "ยง8[ยง41vs1ยง8] ";
 	
 	@Override
 	public void onEnable() {
+		getDataFolder().mkdir();
 		this.registerCommands();
 		this.registerListeners();
 		this.loadArenenLevel();
